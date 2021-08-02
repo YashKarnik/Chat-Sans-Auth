@@ -1,6 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './styles/css/globals.css';
 import App from './components/App.jsx';
+import { RoomsContextsProvider } from './contexts/roomsContext';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <RoomsContextsProvider>
+    <App />
+  </RoomsContextsProvider>,
+  document.getElementById('root')
+);

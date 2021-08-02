@@ -1,0 +1,70 @@
+@use './main';
+.rooms_wrapper {
+  background-color: main.$roomsBackgroundColor;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: 30%;
+  border-right: 1px solid hsl(0, 0%, 35%);
+}
+
+.name {
+  position: sticky;
+  top: 0;
+  font-weight: 800;
+  font-size: 2rem;
+  text-align: center;
+  padding: 1rem;
+  font-weight: 500;
+  color: main.$textColor;
+  background-color: main.$backgroundColorSecondary;
+  border-bottom: 2px solid hsl(0, 0%, 30%);
+  cursor: default;
+}
+.rooms_list {
+  display: flex;
+  overflow: hidden;
+  // overflow-y: scroll;
+
+  flex-direction: column;
+}
+.room {
+  padding: 1rem;
+  width: 100%;
+  text-align: center;
+  color: main.$textColorSecondary;
+  font-size: 1.4rem;
+  cursor: pointer;
+  border-bottom: 2px solid hsl(0, 0%, 30%);
+  transition-duration: 100ms;
+
+  &:hover {
+    background-color: main.$hoverRoom;
+  }
+  &[data-current-room='true'] {
+    background-color: main.$selectedRoom;
+  }
+  &[data-current-room='false'] {
+    &:hover {
+      transform: scale(1.04);
+    }
+  }
+}
+
+.create_room_btn {
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: 500;
+  border: none;
+  height: 3rem;
+  width: 3rem;
+  margin-top: 1.4rem;
+  margin-bottom: 1.4rem;
+  border-radius: 100%;
+  align-self: center;
+  background-color: hsl(267, 95%, 76%);
+  transition-duration: 200ms;
+  &:hover {
+    transform: scale(1.1);
+    background-color: hsl(267, 95%, 69%);
+  }
+}

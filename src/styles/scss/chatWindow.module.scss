@@ -1,0 +1,109 @@
+@use './main';
+.chatsWrapper {
+  position: relative;
+  width: 70%;
+  background-color: main.$backgroundColor;
+  z-index: 100;
+}
+
+.chat_list {
+  height: 95%;
+  background-color: inherit;
+  overflow-y: scroll;
+  padding-top: 0.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.text_blob_receiver {
+  color: main.$sendertextColor;
+  background-color: main.$senderBackgroundColor;
+  border-top-left-radius: 0 !important;
+  &::before {
+    content: '';
+    position: absolute;
+    left: -1rem;
+    top: 0;
+    // height: 0rem;
+    // width: 0rem;
+    border-top: 0.5rem solid transparent;
+    border-right: 1rem solid main.$senderBackgroundColor;
+    border-bottom: 0.5rem solid transparent;
+  }
+}
+.text_blob_sender {
+  color: main.$receivertextColor;
+  background-color: main.$receiverBackgroundColor;
+  margin-left: auto !important;
+  border-top-right-radius: 0 !important;
+  &::after {
+    content: '';
+    color: white;
+    position: absolute;
+    right: -1rem;
+    top: 0;
+    height: 0rem;
+    width: 0rem;
+    border-top: 0.5rem solid transparent;
+    border-left: 1rem solid main.$receiverBackgroundColor;
+    border-bottom: 0.5rem solid transparent;
+  }
+}
+.text_blob {
+  margin: 0.5rem 1rem;
+  width: 48%;
+  padding: 0.8rem;
+  position: relative;
+  border-radius: 0.5rem;
+  // &[data-self='true'] {
+  //   @extend .text_blob_sender;
+  // }
+  // &[data-self='false'] {
+  //   @extend .text_blob_receiver;
+  // }
+}
+
+.addChatForm {
+  height: 3.5rem;
+  background-color: main.$backgroundColorSecondary;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem 0.8rem;
+  .input_message {
+    width: 90%;
+    padding: 0 1rem;
+    border-radius: 1000rem;
+    outline: none;
+    border: none;
+    background-color: main.$hoverRoom;
+    color: main.$textColor;
+    &::placeholder {
+      color: main.$textColorSecondary;
+    }
+  }
+  .send_message {
+    cursor: pointer;
+    border-radius: 1000rem;
+    outline: none;
+    border: none;
+    width: 10%;
+    display: grid;
+    place-items: center;
+    transition-duration: 100ms;
+    background-color: main.$sendButtonBackgroundColor;
+    img {
+      filter: invert(0.9);
+      $size: 1.5rem;
+      height: $size;
+      width: $size;
+    }
+    &:hover {
+      background-color: hsl(173, 100%, 25%);
+      img {
+        filter: invert(0.8);
+      }
+    }
+  }
+}

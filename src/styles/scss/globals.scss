@@ -1,0 +1,28 @@
+@use './main';
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  overflow: hidden;
+}
+ul {
+  list-style: none;
+}
+::-webkit-scrollbar-track {
+  display: none;
+}
+::-webkit-scrollbar-thumb {
+  background-color: hsla(0, 0%, 100%, 0.6);
+  border-radius: 10000000px;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  background-color: main.$backgroundColor;
+}
+
+body {
+  background-color: #000;
+  font-family: sans-serif;
+}
